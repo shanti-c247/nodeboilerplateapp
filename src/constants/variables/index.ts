@@ -1,0 +1,12 @@
+export * as commonVariables from './common.variables';
+export * as userVariables from './user.variables';
+export * as authVariables from './auth.variables';
+export * as fileHandlerVariables from './fileHandler.variables';
+export * as ssoVariables from './sso.variables';
+export * as twoFAVariables from './twoFA.variables';
+export * as dataManagementVariables from './dataManagement.variables';
+export * as paymentVariables from './payment.variables';
+export * as socketVariables from './socket.variables';
+export * as notificationVariables from './notification.variables';
+export * as emailTemplatesVariables from './emailTemplates.variables';
+export * as redisVariables from './redis.variables';

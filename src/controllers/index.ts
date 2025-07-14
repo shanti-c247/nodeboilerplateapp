@@ -1,0 +1,10 @@
+export * as userController from './user.controller';
+export * as authController from './auth.controller';
+export * as localFileHandlerController from './localFileHandler.controller';
+export * as s3FileHandlerController from './s3FileHandler.controller';
+export * as ssoController from './sso.controller';
+export * as twoFAController from './twoFA.controller';
+export * as dataManagementController from './dataManagement.controller';
+export * as paymentController from './payment.controller';
+export * as notificationController from './notification.controller';
+export * as redisController from './redis.controller';

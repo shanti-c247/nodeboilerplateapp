@@ -1,0 +1,49 @@
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      run: |
+        staged_files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.js|\.ts$')
+        if [ -z "$staged_files" ]; then
+          echo "No files to lint.";
+        else
+          echo "$staged_files" | xargs npx biome lint;
+        fi
+      exclude:
+        - node_modules/**
+        - dist/**
+        - commit_msg.js
+    format:
+      run: |
+        staged_files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.js|\.ts$')
+        if [ -z "$staged_files" ]; then
+          echo "No files to format.";
+        else
+          echo "$staged_files" | xargs npx biome format --write;
+        fi
+      exclude:
+        - node_modules/**
+        - dist/**
+        - commit_msg.js
+    branch-name:
+      run: |
+        #!/bin/sh
+        branch_name=$(git rev-parse --abbrev-ref HEAD)
+        pattern="^(master|main|staging)$|^(feat/[a-z]+[a-zA-Z0-9]*|fix/[a-z]+[a-zA-Z0-9]*)$"
+
+        echo "$branch_name" | grep -E "$pattern" > /dev/null
+        if [ $? -ne 0 ]; then
+          echo "Error: Branch name '$branch_name' does not follow the naming convention."
+          echo "Expected branch formats are:"
+          echo "  - 'master', 'main', or 'staging'"
+          echo "  - '<type>/<description>' where:"
+          echo "      <type> is 'feat' or 'fix'"
+          echo "      <description> is in camel case format, e.g., 'leftHook', 'loginIssue'."
+          exit 1
+        fi
+        echo "Branch name '$branch_name' is valid."
+commit-msg:
+  parallel: true
+  commands:
+    validate-commit-message:
+      run: node commit_msg.js

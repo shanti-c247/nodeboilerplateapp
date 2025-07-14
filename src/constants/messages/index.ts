@@ -1,0 +1,10 @@
+export * as commonMessages from './common.messages';
+export * as authMessages from './auth.messages';
+export * as userMessages from './user.messages';
+export * as fileHandlerMessages from './fileHandler.messages';
+export * as ssoMessages from './sso.messages';
+export * as twoFAMessages from './twoFA.message';
+export * as dataManagementMessages from './dataManagement.messages';
+export * as paymentMessages from './payment.messages';
+export * as notificationMessages from './notification.messages';
+export * as redisMessages from './redis.messages';

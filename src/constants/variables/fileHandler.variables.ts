@@ -1,0 +1,14 @@
+export const FILE_FORMATS = ['pdf', 'doc', 'docx', 'csv', 'jpg', 'jpeg', 'png'];
+export const FILE_UPLOAD_FIELD = 'fileUpload';
+export const FILE_UPLOAD_LIMIT = 1;
+export const FILE_SIZE = 50 * 1024 * 1024; //50 MB
+export const PUBLIC_DIR = 'public';
+export const UPLOAD_DIR = 'public/uploads';
+export const UPLOAD_FOLDER = 'documents';
+export const REF_LOCAL_FILE = '#/components/schemas/LocalFile';
+export const REF_S3_FILE = '#/components/schemas/S3File';
+export const LOCALFILEHANDLER_MODULE_SWAGGER_OPERATIONS_PATH = 'src/docs/localFileHandler/operations.ts';
+export const S3FILEHANDLER_MODULE_SWAGGER_OPERATIONS_PATH = 'src/docs/s3FileHandler/operations.ts';
+export const LIMIT_FILE_SIZE_ERROR_CODE = 'LIMIT_FILE_SIZE';
+export const ENOENT_ERROR_CODE = 'ENOENT';
+export const LIMIT_UNEXPECTED_FILE_ERROR_CODE = 'LIMIT_UNEXPECTED_FILE';
