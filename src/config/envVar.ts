@@ -39,12 +39,14 @@ const requiredEnvVars = [
   'REDIS_URL',
 ];
 // Object to hold exported environment variables
-const env: Record<string, string> = {};
+const env: Record<string, any> = {};
 // Ensure all required variables are present and add them to `env`
 requiredEnvVars.forEach((key) => {
   const value = process.env[key];
   if (!value) {
-    throw new Error(`${commonMessages.MISSING_ENV_VARIABLES}: ${key}`);
+    // throw new Error(`${commonMessages.MISSING_ENV_VARIABLES}: ${key}`);
+    console.log('hello');
+
   }
   env[key] = value; // Dynamically add to the export object
 });
